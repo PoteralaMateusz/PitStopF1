@@ -1,4 +1,4 @@
-package pl.api;
+package pl.pitstopf1.api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +15,10 @@ public class Formula1API {
     public Formula1API(String apiURL) {
         this.apiStringURL = apiURL;
         getJsonAPI();
+    }
+
+    public StringBuffer getApiJson() {
+        return apiJson;
     }
 
     private void getJsonAPI() {

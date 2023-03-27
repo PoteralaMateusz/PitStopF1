@@ -8,11 +8,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class Location {
+public class Root {
 
-    private String lat;
-    @JsonProperty("long")
-    private String myLong;
-    private String locality;
-    private String country;
+    @JsonProperty("MRData")
+    private MRData mRData;
 }
