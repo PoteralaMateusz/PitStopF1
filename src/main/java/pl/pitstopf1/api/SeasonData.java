@@ -3,6 +3,7 @@ package pl.pitstopf1.api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.pitstopf1.model.season.MRData;
+import pl.pitstopf1.model.season.RaceTable;
 import pl.pitstopf1.model.season.Root;
 
 public class SeasonData {
@@ -15,6 +16,10 @@ public class SeasonData {
         this.seasonYear = seasonYear;
         this.apiJson = new Formula1API("https://ergast.com/api/f1/" + this.seasonYear + ".json");
         getSeasonDataFromJson();
+    }
+
+    public RaceTable getRaceTable(){
+        return seasonData.getMRData().getRaceTable();
     }
 
     private void getSeasonDataFromJson() {
