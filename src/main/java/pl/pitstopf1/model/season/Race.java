@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import pl.pitstopf1.model.DateConverter;
+
+import java.time.ZonedDateTime;
 
 @Setter
 @Getter
@@ -28,5 +31,10 @@ public class Race {
     private Qualifying qualifying;
     @JsonProperty("Sprint")
     private Sprint sprint;
+
+    public ZonedDateTime getConvertDate(){
+        return DateConverter.getDateTime(getDate(),getTime());
+    }
+
 
 }
