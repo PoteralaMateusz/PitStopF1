@@ -1,4 +1,4 @@
-package pl.pitstopf1.model.driverStanding;
+package pl.pitstopf1.model.driverStandings;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -9,10 +9,11 @@ import java.util.ArrayList;
 @Setter
 @Getter
 @ToString
-public class StandingsList {
+public class StandingsTable {
 
     private String season;
-    private String round;
-    @JsonProperty("DriverStandings")
-    private ArrayList<DriverStanding> driverStandings;
+    @JsonProperty("StandingsLists")
+    private ArrayList<StandingsList> standingsLists;
+
 }
+

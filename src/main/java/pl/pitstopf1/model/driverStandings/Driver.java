@@ -1,4 +1,4 @@
-package pl.pitstopf1.model.driverStanding;
+package pl.pitstopf1.model.driverStandings;
 
 import lombok.Getter;
 import lombok.Setter;

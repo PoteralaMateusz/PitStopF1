@@ -1,4 +1,4 @@
-package pl.pitstopf1.model.driverStanding;
+package pl.pitstopf1.model.driverStandings;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
