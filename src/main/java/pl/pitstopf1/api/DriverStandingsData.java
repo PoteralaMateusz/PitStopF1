@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.pitstopf1.model.driverStandings.DriverStanding;
 import pl.pitstopf1.model.driverStandings.Root;
-import pl.pitstopf1.model.driverStandings.StandingsList;
 
 import java.util.ArrayList;
 
@@ -15,7 +14,8 @@ public class DriverStandingsData {
     private Root driverStandingsData;
 
     public DriverStandingsData(String season) {
-        this.apiJson = new Formula1API(season);
+        this.season = season;
+        this.apiJson = new Formula1API("https://ergast.com/api/f1/" + this.season + "/driverStandings.json");
         getDriverStandingsDataFromJson();
     }
 
@@ -27,6 +27,7 @@ public class DriverStandingsData {
         ObjectMapper mapper = new ObjectMapper();
         try {
             driverStandingsData = mapper.readValue(apiJson.getApiJson().toString(), Root.class);
+
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

@@ -1,13 +1,16 @@
 package pl.pitstopf1.view;
 
+import pl.pitstopf1.api.DriverStandingsData;
 import pl.pitstopf1.api.SeasonData;
 import pl.pitstopf1.model.DateConverter;
+import pl.pitstopf1.model.driverStandings.DriverStanding;
 import pl.pitstopf1.model.season.Race;
 import pl.pitstopf1.model.season.RaceTable;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Main {
@@ -30,6 +33,17 @@ public class Main {
 
         System.out.println("Najbliższy wyścig: " + closestRace.getRaceName() + " ->  start: " +
                 closestRace.getConvertDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z")));
+
+
+        DriverStandingsData driverStandingsData2023 = new DriverStandingsData("2023");
+
+        System.out.println("==========================================");
+        System.out.println("Aktualna tabela kierowców na rok 2023: ");
+        driverStandingsData2023.getDriverStandingsListData().forEach(driverStanding -> {
+            System.out.println(driverStanding.getPosition() + ". :" + driverStanding.getDriver().getGivenName() + " "
+                    + driverStanding.getDriver().getFamilyName() + ", ilość punktów - > " + driverStanding.getPoints());
+        });
+
 
 
     }
