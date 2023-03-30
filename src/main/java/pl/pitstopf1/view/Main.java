@@ -1,5 +1,6 @@
 package pl.pitstopf1.view;
 
+import pl.pitstopf1.api.ConstructorStandingsData;
 import pl.pitstopf1.api.DriverStandingsData;
 import pl.pitstopf1.api.SeasonData;
 import pl.pitstopf1.model.DateConverter;
@@ -38,12 +39,19 @@ public class Main {
         DriverStandingsData driverStandingsData2023 = new DriverStandingsData("2023");
 
         System.out.println("==========================================");
-        System.out.println("Aktualna tabela kierowców na rok 2023: ");
+        System.out.println("Aktualna tabela punktów kierowców w sezonie 2023: ");
         driverStandingsData2023.getDriverStandingsListData().forEach(driverStanding -> {
-            System.out.println(driverStanding.getPosition() + ". :" + driverStanding.getDriver().getGivenName() + " "
+            System.out.println(driverStanding.getPosition() + ". " + driverStanding.getDriver().getGivenName() + " "
                     + driverStanding.getDriver().getFamilyName() + ", ilość punktów - > " + driverStanding.getPoints());
         });
 
+        ConstructorStandingsData constructorStandingsData2023 = new ConstructorStandingsData("2023");
+        System.out.println("==========================================");
+        System.out.println("Aktualna tabela punktów konstruktorów w sezonie 2023: ");
+        constructorStandingsData2023.getConstructorStandingsData().forEach(constructorStanding -> {
+            System.out.println(constructorStanding.getPosition() + ". " + constructorStanding.getConstructor().getName() +
+                    ", ilość punktów - > " + constructorStanding.getPoints());
+        });
 
 
     }
